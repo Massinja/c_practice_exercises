@@ -1,44 +1,43 @@
-#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-bool my_duplchr(char* param_1, char param_2){
-    int i = 0;
-    while(param_1[i] != '\0'){
-        if(param_2 == param_1[i]){
-            return false;
-        }
-        i++;
+char *inter(char* inter_str, char* param_1, char* param_2){
+  
+    int alphabet[127] = {0}; 
+    int alpha_index;
+    for(int index = 0; param_2[index] != '\0'; index++){
+        alpha_index = param_2[index];
+        alphabet[alpha_index]=1;
     }
-           
-    return true;
+  
+    int str_index = 0;
+    for(int index = 0; param_1[index] != '\0'; index++){
+      alpha_index = param_1[index];
+      if(alphabet[alpha_index] == 1){
+        inter_str[str_index] = alpha_index;
+        alphabet[alpha_index]--;
+        str_index++;
+      }
+    }
+  inter_str[str_index]= '\0';
+  
+  return inter_str;
 }
 
-char* inter(char* param_1, char* param_2){
-    char *unique_str = malloc(32);
-    unique_str[0] = '\0';
-    int index = 0;
-    int k = 0;
-    while(param_1[index] != '\0'){
-        if(my_duplchr(unique_str, param_1[index])){
-            unique_str[k] = param_1[index];
-            k++;    
-        }
-        index++;
-    }
+int main(void) {
+  char *inter_str = malloc(128);
+  inter_str[0] = '\0';
+  
+  char *str1 = malloc(128);
+  char *str2 = malloc(128);
+  strcpy(str1, "padinton");
+  strcpy(str2, "paqefwtdjetyiytjneytjoeyjnejeyj");
     
-    index=0;
-    char *inter_str = malloc(32);
-    inter_str[0] = '\0';
-    k= 0;
-
-    while(unique_str[index] != '\0'){
-        if(! my_duplchr(param_2, unique_str[index])){
-            inter_str[k] = unique_str[index];
-            k++;
-        }
-        index++;
-    }
-    inter_str[k] = '\0';
-
-    return inter_str;
+  printf("%s\n", inter(inter_str, str1, str2));
+  free(inter_str);
+  free(str1);
+  free(str2);
+  
+  return 0;
 }
