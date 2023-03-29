@@ -1,5 +1,8 @@
 # c_practice_exercises
 
+* **atoi**  
+Function converts a string argument to an integer. If no valid conversion takes place, then the function returns zero.
+
 * **hidenp**  
 Function takes two strings and returns 1 if the first string is hidden in the second one, otherwise returns 0 followed by a newline.  
 s1 is hidden in s2 if it's possible to find each character from s1 in s2, in the same order as they appear in s1.  
