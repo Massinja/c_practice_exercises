@@ -23,19 +23,22 @@ Function splits a string of characters depending on a separator.
 * **my_strip**  
 Function takes a string, and returns another string which contains exactly one space between words, with no spaces or tabs either at the beginning or the end.
 
-* **rcapitalize**  
-Function takes one string and, capitalizes the last character of each word in uppercase and the rest in lowercase.  
+* **capitalize**
+Function that takes one string and capitalizes the first character of each word and the rest in lowercase.  
 A word is a section of string delimited by spaces/tabs or the start/end of the string. If a word has a single letter, it must be capitalized.  
 A letter is a character in the set [a-zA-Z]
 
+* **rcapitalize**  
+Function takes one string and, capitalizes the last character of each word in uppercase and the rest in lowercase.  
+
 * **spaceship**  
 Function takes in a flight path of a rocket ship as a string of letters and returns the following format:  
-
->"{x: X, y: Y, direction: 'DIRECTION'}"
-
-  X,Y represent the ending coordinates of the ship and direction represents its final direction.  
-  In a ship’s flight path there are only 3 valid options for movement; R for turning right, L for turning left and A for advancing.  
-  Orientation is represented as left, right, up or down.
+```
+"{x: X, y: Y, direction: 'DIRECTION'}"
+```
+X,Y represent the ending coordinates of the ship and direction represents its final direction.  
+In a ship’s flight path there are only 3 valid options for movement; R for turning right, L for turning left and A for advancing.  
+Orientation is represented as left, right, up or down.
 
 * **string_char_inter**  
 Function takes two strings and returns, without doubles, the characters that appear in both strings, in the order they appear in the first
